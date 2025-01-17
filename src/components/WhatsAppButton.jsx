@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 
 const WhatsAppButton = () => {
+  const [menuVisible, setMenuVisible] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuVisible(!menuVisible);
+  };
+
   return (
     <div className="whatsapp-menu">
-      <button className="btn-whatsapp" id="whatsappButton">
+      <button className="btn-whatsapp" id="whatsappButton" onClick={toggleMenu}>
         <i className="bi bi-whatsapp"></i>
       </button>
-      <div className="linktree" id="whatsappMenu">
+
+      <div
+        className={`linktree ${menuVisible ? "active" : ""}`}
+        id="whatsappMenu"
+      >
         <ul className="list-group">
           <li className="list-group-item">
             <div className="d-flex justify-content-between align-items-center">

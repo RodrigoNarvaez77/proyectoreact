@@ -9,71 +9,72 @@ const Formulario = () => {
     mensaje: "",
   });
 
-  const [loading, setLoading] = useState(false); // Para manejar el estado del botón
-  const [notification, setNotification] = useState({ message: "", type: "" }); // Notificación
+  const [loading, setLoading] = useState(false);
+  const [notification, setNotification] = useState({ message: "", type: "" });
+  const [showNotification, setShowNotification] = useState(false); // Controla la visibilidad de la notificación
 
-  // Manejar los cambios en los campos del formulario
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Enviar el formulario con EmailJS
   const enviarFormulario = (e) => {
-    e.preventDefault(); // Prevenir recarga de la página
+    e.preventDefault();
     setLoading(true);
 
     emailjs
       .send(
-        "service_k65j17r", // Reemplaza con tu Service ID de EmailJS
-        "template_bs86x61", // Reemplaza con tu Template ID de EmailJS
+        "service_k65j17r",
+        "template_bs86x61",
         {
           nombre: formData.nombre,
           email: formData.email,
           telefono: formData.telefono,
           mensaje: formData.mensaje,
         },
-        "fHj28KP1AWBuCIBG1" // Reemplaza con tu User ID de EmailJS
+        "fHj28KP1AWBuCIBG1"
       )
       .then(
-        (result) => {
+        () => {
           setNotification({
             message: "Formulario enviado correctamente.",
             type: "success",
           });
-          setFormData({ nombre: "", email: "", telefono: "", mensaje: "" }); // Limpiar formulario
+          setShowNotification(true); // Muestra la notificación
+          setFormData({ nombre: "", email: "", telefono: "", mensaje: "" });
         },
-        (error) => {
+        () => {
           setNotification({
             message: "Error al enviar el formulario. Inténtalo más tarde.",
             type: "error",
           });
+          setShowNotification(true); // Muestra la notificación
         }
       )
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   // Temporizador para ocultar la notificación después de 3 segundos
   useEffect(() => {
-    if (notification.message) {
-      const timer = setTimeout(
-        () => setNotification({ message: "", type: "" }),
-        3000
-      );
-      return () => clearTimeout(timer); // Limpia el temporizador si el componente se desmonta
+    if (showNotification) {
+      const timer = setTimeout(() => setShowNotification(false), 3000);
+      return () => clearTimeout(timer);
     }
-  }, [notification]);
+  }, [showNotification]);
 
   // Renderizar notificación
   const renderNotification = () => {
-    if (notification.message) {
-      return (
-        <div className={`notification ${notification.type}`}>
-          {notification.message}
-        </div>
-      );
-    }
-    return null;
+    return (
+      <div
+        className={`notification ${showNotification ? "show" : "hidden"} ${
+          notification.type === "success" ? "success" : "error"
+        }`}
+      >
+        {notification.message}
+      </div>
+    );
   };
 
   return (
