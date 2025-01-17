@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import emailjs from "emailjs-com";
 
 const Formulario = () => {
@@ -38,21 +38,31 @@ const Formulario = () => {
       .then(
         (result) => {
           setNotification({
-            message: "Formulario enviado correctamente",
+            message: "Formulario enviado correctamente.",
             type: "success",
           });
           setFormData({ nombre: "", email: "", telefono: "", mensaje: "" }); // Limpiar formulario
-          setLoading(false);
         },
         (error) => {
           setNotification({
             message: "Error al enviar el formulario. Inténtalo más tarde.",
             type: "error",
           });
-          setLoading(false);
         }
-      );
+      )
+      .finally(() => setLoading(false));
   };
+
+  // Temporizador para ocultar la notificación después de 3 segundos
+  useEffect(() => {
+    if (notification.message) {
+      const timer = setTimeout(
+        () => setNotification({ message: "", type: "" }),
+        3000
+      );
+      return () => clearTimeout(timer); // Limpia el temporizador si el componente se desmonta
+    }
+  }, [notification]);
 
   // Renderizar notificación
   const renderNotification = () => {
