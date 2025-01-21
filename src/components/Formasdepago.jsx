@@ -12,7 +12,7 @@ const FormasDePago = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <div className="flex flex-col items-center">
-            <i className="bi bi-journal-text text-5xl text-blue-500"></i>
+            <i className="bi bi-journal-text text-5xl text-green-700"></i>
             <h4 className="mt-4 text-xl font-semibold text-gray-800">
               Cotiza fácilmente
             </h4>
@@ -21,7 +21,7 @@ const FormasDePago = () => {
             </p>
           </div>
           <div className="flex flex-col items-center">
-            <i className="bi bi-credit-card text-5xl text-blue-500"></i>
+            <i className="bi bi-credit-card text-5xl text-green-700"></i>
             <h4 className="mt-4 text-xl font-semibold text-gray-800">
               Paga cómodamente
             </h4>
@@ -30,7 +30,7 @@ const FormasDePago = () => {
             </p>
           </div>
           <div className="flex flex-col items-center">
-            <i className="bi bi-truck text-5xl text-blue-500"></i>
+            <i className="bi bi-truck text-5xl text-green-700"></i>
             <h4 className="mt-4 text-xl font-semibold text-gray-800">
               Retira o recibe
             </h4>
