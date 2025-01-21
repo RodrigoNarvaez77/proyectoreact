@@ -11,7 +11,7 @@ const Formulario = () => {
 
   const [loading, setLoading] = useState(false);
   const [notification, setNotification] = useState({ message: "", type: "" });
-  const [showNotification, setShowNotification] = useState(false); // Controla la visibilidad de la notificación
+  const [showNotification, setShowNotification] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -40,7 +40,7 @@ const Formulario = () => {
             message: "Formulario enviado correctamente.",
             type: "success",
           });
-          setShowNotification(true); // Muestra la notificación
+          setShowNotification(true);
           setFormData({ nombre: "", email: "", telefono: "", mensaje: "" });
         },
         () => {
@@ -48,7 +48,7 @@ const Formulario = () => {
             message: "Error al enviar el formulario. Inténtalo más tarde.",
             type: "error",
           });
-          setShowNotification(true); // Muestra la notificación
+          setShowNotification(true);
         }
       )
       .finally(() => {
@@ -56,7 +56,6 @@ const Formulario = () => {
       });
   };
 
-  // Temporizador para ocultar la notificación después de 3 segundos
   useEffect(() => {
     if (showNotification) {
       const timer = setTimeout(() => setShowNotification(false), 3000);
@@ -64,90 +63,115 @@ const Formulario = () => {
     }
   }, [showNotification]);
 
-  // Renderizar notificación
-  const renderNotification = () => {
-    return (
-      <div
-        className={`notification ${showNotification ? "show" : "hidden"} ${
-          notification.type === "success" ? "success" : "error"
-        }`}
-      >
-        {notification.message}
-      </div>
-    );
-  };
-
   return (
-    <section className="image-container">
-      <img src="/images/fotoedificio.png" alt="sucursales" />
-      <div className="overlay">
-        <h2>Solicita una Cotización</h2>
-        {renderNotification()}
-        <form id="contactForm" onSubmit={enviarFormulario}>
-          <div className="mb-3">
-            <label htmlFor="nombre" className="form-label">
-              Nombre
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="nombre"
-              name="nombre"
-              placeholder="Tu nombre"
-              value={formData.nombre}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="email" className="form-label">
-              Correo Electrónico
-            </label>
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              name="email"
-              placeholder="Tu correo electrónico"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="telefono" className="form-label">
-              Teléfono
-            </label>
-            <input
-              type="tel"
-              className="form-control"
-              id="telefono"
-              name="telefono"
-              placeholder="Tu teléfono"
-              value={formData.telefono}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="mensaje" className="form-label">
-              Mensaje
-            </label>
-            <textarea
-              className="form-control"
-              id="mensaje"
-              name="mensaje"
-              rows="3"
-              placeholder="Detalles de tu consulta"
-              value={formData.mensaje}
-              onChange={handleChange}
-              required
-            ></textarea>
-          </div>
-          <button type="submit" className="btn btn-primary" disabled={loading}>
-            {loading ? "Enviando..." : "Enviar Cotización"}
-          </button>
-        </form>
+    <section className="relative w-full h-screen bg-cover bg-center">
+      <img
+        src="/images/fotoedificio.png"
+        alt="sucursales"
+        className="w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 flex items-center justify-start p-6 ml-20">
+        <div className="w-full max-w-md bg-gray-900 bg-opacity-90 p-6 rounded-lg shadow-lg">
+          <h2 className="text-3xl font-bold text-white mb-6">
+            Solicita una Cotización
+          </h2>
+          {showNotification && (
+            <div
+              className={`mb-4 p-4 rounded-md ${
+                notification.type === "success"
+                  ? "bg-green-500 text-white"
+                  : "bg-red-500 text-white"
+              }`}
+            >
+              {notification.message}
+            </div>
+          )}
+          <form id="contactForm" onSubmit={enviarFormulario}>
+            <div className="mb-4">
+              <label
+                htmlFor="nombre"
+                className="block text-sm font-medium text-white"
+              >
+                Nombre
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="Tu nombre"
+                value={formData.nombre}
+                onChange={handleChange}
+                required
+                className="mt-1 block w-full rounded-md border-gray-700 bg-gray-800 text-white placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-white"
+              >
+                Correo Electrónico
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Tu correo electrónico"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="mt-1 block w-full rounded-md border-gray-700 bg-gray-800 text-white placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="telefono"
+                className="block text-sm font-medium text-white"
+              >
+                Teléfono
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                placeholder="Tu teléfono"
+                value={formData.telefono}
+                onChange={handleChange}
+                required
+                className="mt-1 block w-full rounded-md border-gray-700 bg-gray-800 text-white placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="mensaje"
+                className="block text-sm font-medium text-white"
+              >
+                Mensaje
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                rows="3"
+                placeholder="Detalles de tu consulta"
+                value={formData.mensaje}
+                onChange={handleChange}
+                required
+                className="mt-1 block w-full rounded-md border-gray-700 bg-gray-800 text-white placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              disabled={loading}
+              className={`w-full px-4 py-2 text-white font-semibold rounded-md ${
+                loading
+                  ? "bg-gray-500 cursor-not-allowed"
+                  : "bg-indigo-600 hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500"
+              }`}
+            >
+              {loading ? "Enviando..." : "Enviar Cotización"}
+            </button>
+          </form>
+        </div>
       </div>
     </section>
   );

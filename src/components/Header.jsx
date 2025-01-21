@@ -1,57 +1,94 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
-    <header>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="container">
-          <a className="navbar-brand" href="#">
-            <img
-              src="./images/logo ferretería blanco.png"
-              alt="Logo Ferretería"
-              style={{ width: "250px", height: "auto" }}
-            />
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+    <header className="bg-black text-white shadow-lg">
+      <nav className="container mx-auto flex items-center justify-between py-4 px-6">
+        {/* Logo */}
+        <a href="#" className="flex items-center">
+          <img
+            src="./images/logo ferretería blanco.png"
+            alt="Logo Ferretería"
+            className="w-60 h-auto"
+          />
+        </a>
+
+        {/* Botón para menú móvil */}
+        <button
+          className="lg:hidden text-gray-200 focus:outline-none"
+          onClick={toggleMenu}
+          aria-label="Toggle navigation"
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <a className="nav-link" href="#cotizacion">
-                  Cotización
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#compromiso">
-                  Compromiso
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#pago">
-                  Pago
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#categorias">
-                  Categorías
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#redes">
-                  Redes sociales
-                </a>
-              </li>
-            </ul>
-          </div>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </button>
+
+        {/* Menú */}
+        <div
+          className={`${
+            menuOpen ? "block" : "hidden"
+          } lg:flex lg:items-center lg:gap-8`}
+        >
+          <ul className="flex flex-col lg:flex-row items-center gap-4 lg:gap-6 mt-4 lg:mt-0">
+            <li>
+              <a
+                href="#cotizacion"
+                className="text-white hover:text-gray-400 no-underline transition"
+              >
+                Cotización
+              </a>
+            </li>
+            <li>
+              <a
+                href="#compromiso"
+                className="text-white hover:text-gray-400 no-underline transition"
+              >
+                Compromiso
+              </a>
+            </li>
+            <li>
+              <a
+                href="#pago"
+                className="text-white hover:text-gray-400 no-underline transition"
+              >
+                Pago
+              </a>
+            </li>
+            <li>
+              <a
+                href="#categorias"
+                className="text-white hover:text-gray-400 no-underline transition"
+              >
+                Categorías
+              </a>
+            </li>
+            <li>
+              <a
+                href="#redes"
+                className="text-white hover:text-gray-400 no-underline transition"
+              >
+                Redes sociales
+              </a>
+            </li>
+          </ul>
         </div>
       </nav>
     </header>
