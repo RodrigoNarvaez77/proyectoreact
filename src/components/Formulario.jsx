@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import emailjs from "emailjs-com";
 
-const Formulario = () => {
+const Formulario = ({ backgroundImage }) => {
   const [formData, setFormData] = useState({
     nombre: "",
     email: "",
@@ -64,12 +64,10 @@ const Formulario = () => {
   }, [showNotification]);
 
   return (
-    <section className="relative w-full h-screen bg-cover bg-center">
-      <img
-        src="/images/fotoedificio.png"
-        alt="sucursales"
-        className="w-full h-full object-cover"
-      />
+    <section
+      className="relative w-full h-screen bg-cover bg-center"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
       <div className="absolute inset-0 flex items-center justify-start p-6 ml-20">
         <div className="w-full max-w-md bg-gray-900 bg-opacity-90 p-6 rounded-lg shadow-lg">
           <h2 className="text-3xl font-bold text-white mb-6">

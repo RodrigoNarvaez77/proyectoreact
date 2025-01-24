@@ -66,7 +66,7 @@ const Arquitecturayconstruccion = () => {
 
         {/* Botón */}
         <motion.a
-          href="construccion.html"
+          href="/construccion"
           className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 shadow-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
