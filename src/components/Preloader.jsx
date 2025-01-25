@@ -17,12 +17,12 @@ const Preloader = () => {
   }
 
   return (
-    <div id="preloader" style={styles.preloader}>
+    <div id="preloader" className="preloader">
       <img
         id="logo"
         src="/images/logo ferretería blanco.png" // Cambia esta ruta según tu logo
-        alt="Logo Ferretería"
-        style={styles.logo}
+        alt="logo"
+        className="logo"
       />
     </div>
   );
