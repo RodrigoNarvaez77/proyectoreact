@@ -67,15 +67,14 @@ const Categorias = () => {
             whileHover={{ scale: 1.05 }}
           >
             {/* Contenedor del mapa */}
-            <div className="relative h-[28rem] overflow-hidden">
+            <div className="w-full h-96 object-cover">
               <iframe
                 src="https://www.google.com/maps/d/u/0/embed?mid=1zNKJjn5B9lpbGxrwn258gD8XFoZQhkY&zoom=13&ehbc=2E312F"
                 className="w-full h-full"
                 style={{
-                  border: 0,
-                  transform: "translateY(-70px)", // Desplazamos hacia arriba,
-                  borderRadius: "15px",
                   position: "relative",
+                  top: "-70px", // Ajusta el valor para ocultar el encabezado negro
+                  height: "calc(100% + 70px)", // Aumenta la altura para cubrir
                 }}
                 allowFullScreen
                 loading="lazy"
