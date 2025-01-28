@@ -30,8 +30,9 @@ const Header = () => {
         </a>
 
         {/* Botón para menú móvil estilizado */}
+        {/* Botón para menú móvil estilizado */}
         <button
-          className="lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 text-gray-200 hover:bg-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all duration-300"
+          className="lg:hidden flex items-center justify-center w-12 h-12 rounded-full bg-gray-800 text-gray-200 hover:bg-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none transform hover:scale-110 transition duration-300 ease-in-out"
           onClick={toggleMenu}
           aria-label="Toggle navigation"
         >
