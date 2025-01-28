@@ -68,7 +68,7 @@ const Formulario = ({ backgroundImage }) => {
       className="relative w-full h-screen bg-cover bg-center"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <div className="absolute inset-0 flex items-center justify-start p-6 ml-20">
+      <div className="absolute inset-0 flex items-center justify-center p-6 sm:justify-start sm:ml-10 lg:ml-20">
         <div className="w-full max-w-md bg-gray-900 bg-opacity-90 p-6 rounded-lg shadow-lg">
           <h2 className="text-3xl font-bold text-white mb-6 text-center">
             Solicita una Cotización
