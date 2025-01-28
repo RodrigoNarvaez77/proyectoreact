@@ -1,12 +1,58 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 const WhatsAppButton = () => {
   const [menuVisible, setMenuVisible] = useState(false);
+  const location = useLocation(); // Hook para obtener la ruta actual
 
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
   };
+
+  // Contenido dinámico basado en la ruta
+  const isConstruccionPage = location.pathname === "/construccion";
+
+  const sucursales = isConstruccionPage
+    ? [
+        {
+          name: "Asistente de Ventas",
+          address: "Condell 615, Arauco",
+          link: "https://wa.me/+56976151892",
+        },
+      ]
+    : [
+        {
+          name: "Casa Matriz",
+          address: "Condell 615, Arauco",
+          link: "https://wa.me/+56976151892",
+        },
+        {
+          name: "Sucursal Arauco",
+          address: "O'Higgins 395",
+          link: "https://wa.me/+56912345678",
+        },
+        {
+          name: "Sucursal Curanilahue",
+          address: "O'Higgins 810",
+          link: "https://wa.me/+56987654321",
+        },
+        {
+          name: "Sucursal Cañete",
+          address: "Villagrán 1075",
+          link: "https://wa.me/+56912312345",
+        },
+        {
+          name: "Sucursal Huillinco",
+          address: "Huillinco S/N",
+          link: "https://wa.me/+56998798765",
+        },
+        {
+          name: "Sucursal Santa Juana",
+          address: "Lautaro 1097",
+          link: "https://wa.me/+56965465432",
+        },
+      ];
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
@@ -33,40 +79,8 @@ const WhatsAppButton = () => {
             overflowY: "auto", // Agrega un scroll si hay muchas sucursales
           }}
         >
-          {/* Lista de sucursales */}
           <div className="space-y-2">
-            {[
-              {
-                name: "Casa Matriz",
-                address: "Condell 615, Arauco",
-                link: "https://wa.me/+56976151892",
-              },
-              {
-                name: "Sucursal Arauco",
-                address: "O'Higgins 395",
-                link: "https://wa.me/+56912345678",
-              },
-              {
-                name: "Sucursal Curanilahue",
-                address: "O'Higgins 810",
-                link: "https://wa.me/+56987654321",
-              },
-              {
-                name: "Sucursal Cañete",
-                address: "Villagrán 1075",
-                link: "https://wa.me/+56912312345",
-              },
-              {
-                name: "Sucursal Huillinco",
-                address: "Huillinco S/N",
-                link: "https://wa.me/+56998798765",
-              },
-              {
-                name: "Sucursal Santa Juana",
-                address: "Lautaro 1097",
-                link: "https://wa.me/+56965465432",
-              },
-            ].map((sucursal, index) => (
+            {sucursales.map((sucursal, index) => (
               <motion.div
                 key={index}
                 whileHover={{ scale: 1.02 }}

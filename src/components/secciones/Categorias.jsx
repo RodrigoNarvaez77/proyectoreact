@@ -10,7 +10,7 @@ const Categorias = () => {
         backgroundAttachment: "fixed",
       }}
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 py-12">
         {/* Título */}
         <motion.h3
           id="categorias"
@@ -32,7 +32,7 @@ const Categorias = () => {
             <img
               src="/images/pelotaproductos.png"
               alt="Productos"
-              className="w-full h-56 object-cover"
+              className="w-full h-96 object-cover"
             />
             <div className="p-6 text-center">
               <h3 className="text-xl font-bold text-gray-800">Productos</h3>
@@ -50,7 +50,7 @@ const Categorias = () => {
             <img
               src="/images/servicios.png"
               alt="Servicios"
-              className="w-full h-56 object-cover"
+              className="w-full h-96 object-cover"
             />
             <div className="p-6 text-center">
               <h3 className="text-xl font-bold text-gray-800">Servicios</h3>
@@ -66,22 +66,22 @@ const Categorias = () => {
             className="bg-white shadow-lg rounded-xl overflow-hidden transform transition duration-300 hover:scale-105"
             whileHover={{ scale: 1.05 }}
           >
-            <div className="relative h-56">
+            {/* Contenedor del mapa */}
+            <div className="relative h-[28rem] overflow-hidden">
               <iframe
                 src="https://www.google.com/maps/d/u/0/embed?mid=1zNKJjn5B9lpbGxrwn258gD8XFoZQhkY&zoom=13&ehbc=2E312F"
-                width="100%"
-                height="100%"
+                className="w-full h-full"
                 style={{
                   border: 0,
+                  transform: "translateY(-70px)", // Desplazamos hacia arriba,
                   borderRadius: "15px",
-                  pointerEvents: "auto",
-                  top: "-20px", // Desplaza el mapa para ocultar la barra negra.
                   position: "relative",
                 }}
                 allowFullScreen
                 loading="lazy"
               ></iframe>
             </div>
+            {/* Texto del mapa */}
             <div className="p-6 text-center">
               <h3 className="text-xl font-bold text-gray-800">Mapa</h3>
               <p className="text-sm text-gray-600 mt-2">
@@ -91,8 +91,6 @@ const Categorias = () => {
           </motion.div>
         </div>
       </div>
-      <br></br>
-      <br></br>
     </section>
   );
 };

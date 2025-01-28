@@ -25,7 +25,7 @@ const Arquitecturayconstruccion = () => {
             <img
               src="./images/imagen1.png"
               alt="Producto 1"
-              className="w-full h-80 object-cover"
+              className="w-full h-96 object-cover"
             />
           </motion.div>
 
@@ -37,7 +37,7 @@ const Arquitecturayconstruccion = () => {
             <img
               src="./images/imagen2.png"
               alt="Producto 2"
-              className="w-full h-80 object-cover"
+              className="w-full h-96 object-cover"
             />
           </motion.div>
 
@@ -49,7 +49,7 @@ const Arquitecturayconstruccion = () => {
             <img
               src="./images/imagen3.png"
               alt="Producto 3"
-              className="w-full h-80 object-cover"
+              className="w-full h-96 object-cover"
             />
           </motion.div>
         </div>
