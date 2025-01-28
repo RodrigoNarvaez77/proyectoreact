@@ -14,8 +14,8 @@ const Header = () => {
   const isConstruccionPage = location.pathname === "/construccion";
 
   return (
-    <header className="bg-black text-white shadow-lg">
-      <nav className="container mx-auto flex items-center justify-between py-4 px-6">
+    <header className="bg-gray-800 text-white shadow-lg">
+      <nav className="container mx-auto flex items-center justify-between py-3 px-6">
         {/* Logo dinámico */}
         <a href="#" className="flex items-center">
           <img
