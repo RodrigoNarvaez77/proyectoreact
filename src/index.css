@@ -51,13 +51,13 @@
 
 @media (max-width: 768px) {
   #preloader img#logo {
-    width: 150px;
+    width: 300px;
   }
 }
 
 @media (max-width: 480px) {
   #preloader img#logo {
-    width: 120px;
+    width: 300px;
   }
 }
 
