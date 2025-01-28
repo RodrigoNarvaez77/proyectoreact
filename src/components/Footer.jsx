@@ -9,7 +9,7 @@ const Footer = () => {
   const isConstruccionPage = location.pathname === "/construccion";
 
   return (
-    <footer className="bg-black text-gray-100 text-center py-6">
+    <footer className="bg-black text-gray-100 text-center py-6" id="redes">
       <p className="text-sm mb-4">
         &copy; 2024 Ferretería Solucenter. Todos los derechos reservados.
       </p>

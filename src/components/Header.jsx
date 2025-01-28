@@ -109,7 +109,7 @@ const Header = () => {
                     href="#pago"
                     className="text-white hover:text-gray-400 no-underline transition"
                   >
-                    Pago
+                    Compras
                   </a>
                 </li>
                 <li>
