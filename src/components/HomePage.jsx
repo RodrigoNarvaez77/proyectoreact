@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Preloader from "./Preloader";
 import Header from "./Header";
 import Formulario from "./Formulario";
@@ -12,21 +12,34 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 const HomePage = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simula la carga durante 3 segundos antes de mostrar la página
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer); // Limpia el temporizador cuando se desmonta
+  }, []);
+
+  // 🔹 Mientras `loading` sea `true`, solo mostramos el Preloader
+  if (loading) {
+    return <Preloader />;
+  }
+
+  // 🔹 Cuando `loading` es `false`, mostramos la página completa
   return (
-    <>
-      <Preloader />
-      <div>
-        <Header />
-        {/* Aquí pasas el fondo dinámico */}
-        <Formulario backgroundImage="/images/fotoedificio.png" />
-        <Compromiso />
-        <Formadepago />
-        <Categorias />
-        <Arquitecturayconstruccion />
-        <Footer />
-        <WhatsAppButton />
-      </div>
-    </>
+    <div>
+      <Header />
+      <Formulario backgroundImage="/images/fotoedificio.png" />
+      <Compromiso />
+      <Formadepago />
+      <Categorias />
+      <Arquitecturayconstruccion />
+      <Footer />
+      <WhatsAppButton />
+    </div>
   );
 };
 

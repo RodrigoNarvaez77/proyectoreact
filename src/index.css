@@ -1,42 +1,25 @@
-/* ==================================================
-  ANIMACIONES
-===================================================== */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInOut {
+@keyframes growFadeOut {
   0% {
     opacity: 0;
-    transform: scale(0.8);
+    transform: scale(0.5); /* Inicia más pequeño */
   }
   50% {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1); /* Tamaño normal */
   }
   100% {
     opacity: 0;
-    transform: scale(1.2);
+    transform: scale(1.5); /* Se agranda hasta desaparecer */
   }
 }
 
-/* ==================================================
-  PRELOADER (Solo si es necesario)
-===================================================== */
-#preloader {
+.preloader {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("../images/pt40.webp") no-repeat center center;
+  background: url("/images/pt40.webp") no-repeat center center;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -44,30 +27,30 @@
   z-index: 9999;
 }
 
-#preloader img#logo {
-  width: 400px;
-  animation: fadeInOut 3s ease forwards;
+.preloader .logo {
+  /* Corregido: Usamos .logo en lugar de #logo */
+  width: 400px !important;
+  height: auto !important;
+  animation: growFadeOut 3.5s ease-in-out forwards; /* Aplicamos la animación */
 }
 
 @media (max-width: 768px) {
-  #preloader img#logo {
-    width: 300px;
+  .preloader .logo {
+    width: 400px !important;
   }
 }
 
 @media (max-width: 480px) {
-  #preloader img#logo {
-    width: 300px;
+  .preloader .logo {
+    width: 400px !important;
   }
 }
 
 /* ==================================================
   ESTILOS PERSONALIZADOS QUE NO CUBRE TAILWIND
 ===================================================== */
-
-/* Fondo Blanco con Imagen */
 .white-background {
-  background-image: url("../images/ferretera_solucenter_cover.png");
+  background-image: url("/images/ferretera_solucenter_cover.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
