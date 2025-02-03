@@ -14,8 +14,8 @@ const Header = () => {
   const isConstruccionPage = location.pathname === "/construccion";
 
   return (
-    <header className="bg-gray-800 text-white shadow-lg">
-      <nav className="container mx-auto flex items-center justify-between py-3 px-6">
+    <header className="bg-gradient-to-r from-black via-gray-800 to-black text-white py-4 relative">
+      <nav className="container mx-auto flex items-center justify-between px-6">
         {/* Logo dinámico */}
         <a href="#" className="flex items-center">
           <img
@@ -25,7 +25,7 @@ const Header = () => {
                 : "./images/logo ferretería blanco.png" // Logo por defecto
             }
             alt={isConstruccionPage ? "Logo Construcción" : "Logo Ferretería"}
-            className="w-60 h-auto"
+            className="w-60 h-auto hover:scale-105 transition-transform duration-300"
           />
         </a>
 
@@ -64,7 +64,7 @@ const Header = () => {
                 <li>
                   <a
                     href="#proyectos"
-                    className="text-white hover:text-gray-400 no-underline transition"
+                    className="text-white hover:text-blue-400 transition duration-300"
                   >
                     Proyectos
                   </a>
@@ -72,7 +72,7 @@ const Header = () => {
                 <li>
                   <a
                     href="#materiales"
-                    className="text-white hover:text-gray-400 no-underline transition"
+                    className="text-white hover:text-blue-400 transition duration-300"
                   >
                     Materiales
                   </a>
@@ -80,7 +80,7 @@ const Header = () => {
                 <li>
                   <a
                     href="#contacto"
-                    className="text-white hover:text-gray-400 no-underline transition"
+                    className="text-white hover:text-blue-400 transition duration-300"
                   >
                     Contacto
                   </a>
@@ -91,7 +91,7 @@ const Header = () => {
                 <li>
                   <a
                     href="#cotizacion"
-                    className="text-white hover:text-gray-400 no-underline transition"
+                    className="text-white hover:text-blue-400 transition duration-300"
                   >
                     Cotización
                   </a>
@@ -99,7 +99,7 @@ const Header = () => {
                 <li>
                   <a
                     href="#compromiso"
-                    className="text-white hover:text-gray-400 no-underline transition"
+                    className="text-white hover:text-blue-400 transition duration-300"
                   >
                     Compromiso
                   </a>
@@ -107,7 +107,7 @@ const Header = () => {
                 <li>
                   <a
                     href="#pago"
-                    className="text-white hover:text-gray-400 no-underline transition"
+                    className="text-white hover:text-blue-400 transition duration-300"
                   >
                     Compras
                   </a>
@@ -115,7 +115,7 @@ const Header = () => {
                 <li>
                   <a
                     href="#categorias"
-                    className="text-white hover:text-gray-400 no-underline transition"
+                    className="text-white hover:text-blue-400 transition duration-300"
                   >
                     Categorías
                   </a>
@@ -123,7 +123,7 @@ const Header = () => {
                 <li>
                   <a
                     href="#redes"
-                    className="text-white hover:text-gray-400 no-underline transition"
+                    className="text-white hover:text-blue-400 transition duration-300"
                   >
                     Redes sociales
                   </a>

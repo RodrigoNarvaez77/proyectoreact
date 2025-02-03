@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import emailjs from "emailjs-com";
+import { motion, AnimatePresence } from "framer-motion"; // Importamos las herramientas de framer-motion
 
 const Formulario = ({ backgroundImage }) => {
   const [formData, setFormData] = useState({
@@ -69,22 +70,29 @@ const Formulario = ({ backgroundImage }) => {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="absolute inset-0 flex items-center justify-center p-6 sm:justify-start sm:ml-10 lg:ml-20">
-        <div className="w-full max-w-md bg-gray-900 bg-opacity-90 p-6 rounded-lg shadow-lg">
+        <div className="w-full max-w-lg bg-opacity-80 bg-gray-800 p-8 rounded-lg shadow-xl">
           <h2 className="text-3xl font-bold text-white mb-6 text-center">
             Solicita una Cotización
           </h2>
 
-          {showNotification && (
-            <div
-              className={`mb-4 p-4 rounded-md ${
-                notification.type === "success"
-                  ? "bg-green-500 text-white"
-                  : "bg-red-500 text-white"
-              }`}
-            >
-              {notification.message}
-            </div>
-          )}
+          <AnimatePresence>
+            {showNotification && (
+              <motion.div
+                className={`mb-4 p-4 rounded-md ${
+                  notification.type === "success"
+                    ? "bg-green-500 text-white"
+                    : "bg-red-500 text-white"
+                }`}
+                initial={{ opacity: 0 }} // Estado inicial de la notificación (transparente)
+                animate={{ opacity: 1 }} // Estado final de la notificación (visible)
+                exit={{ opacity: 0 }} // Estado cuando la notificación desaparece
+                transition={{ duration: 0.5 }} // Duración de la animación
+              >
+                {notification.message}
+              </motion.div>
+            )}
+          </AnimatePresence>
+
           <form id="contactForm" onSubmit={enviarFormulario}>
             <div className="mb-4">
               <label
@@ -101,9 +109,10 @@ const Formulario = ({ backgroundImage }) => {
                 value={formData.nombre}
                 onChange={handleChange}
                 required
-                className="mt-1 block w-full rounded-md border-gray-700 bg-gray-800 text-white placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                className="mt-1 block w-full rounded-md border-gray-600 bg-gray-700 text-white placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
               />
             </div>
+
             <div className="mb-4">
               <label
                 htmlFor="email"
@@ -119,9 +128,10 @@ const Formulario = ({ backgroundImage }) => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="mt-1 block w-full rounded-md border-gray-700 bg-gray-800 text-white placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                className="mt-1 block w-full rounded-md border-gray-600 bg-gray-700 text-white placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
               />
             </div>
+
             <div className="mb-4">
               <label
                 htmlFor="telefono"
@@ -137,9 +147,10 @@ const Formulario = ({ backgroundImage }) => {
                 value={formData.telefono}
                 onChange={handleChange}
                 required
-                className="mt-1 block w-full rounded-md border-gray-700 bg-gray-800 text-white placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                className="mt-1 block w-full rounded-md border-gray-600 bg-gray-700 text-white placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
               />
             </div>
+
             <div className="mb-4">
               <label
                 htmlFor="mensaje"
@@ -155,16 +166,17 @@ const Formulario = ({ backgroundImage }) => {
                 value={formData.mensaje}
                 onChange={handleChange}
                 required
-                className="mt-1 block w-full rounded-md border-gray-700 bg-gray-800 text-white placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                className="mt-1 block w-full rounded-md border-gray-600 bg-gray-700 text-white placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
               ></textarea>
             </div>
+
             <button
               type="submit"
               disabled={loading}
-              className={`w-full px-4 py-2 text-white font-semibold rounded-md ${
+              className={`w-full px-4 py-2 text-white font-semibold rounded-lg ${
                 loading
                   ? "bg-gray-500 cursor-not-allowed"
-                  : "bg-blue-600 hover:bg-blue-700 focus:ring-2 focus:ring-blue-500"
+                  : "bg-gradient-to-r from-[#4b4f75] to-[#2d3557] hover:bg-gradient-to-r hover:from-[#2d3557] hover:to-[#434762] focus:ring-2 focus:ring-blue-500"
               }`}
             >
               {loading ? "Enviando..." : "Enviar Cotización"}

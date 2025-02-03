@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Preloader from "./Preloader";
 import Header from "./Header";
 import Formulario from "./Formulario";
@@ -8,6 +9,7 @@ import Compromiso from "./secciones/Compromiso";
 import Categorias from "./secciones/Categorias";
 import Arquitecturayconstruccion from "./ArquitecturayConstruccion";
 import Formadepago from "./Formasdepago";
+import Chatbot from "./Chatbot";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
@@ -15,30 +17,55 @@ const HomePage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simula la carga durante 3 segundos antes de mostrar la página
+    // 🔹 Bloqueamos el scroll mientras el preloader está activo
+    document.body.style.overflow = "hidden";
+
     const timer = setTimeout(() => {
       setLoading(false);
+      document.body.style.overflow = "auto"; // 🔹 Reactivamos el scroll al terminar
     }, 3000);
 
-    return () => clearTimeout(timer); // Limpia el temporizador cuando se desmonta
+    return () => {
+      clearTimeout(timer);
+      document.body.style.overflow = "auto";
+    };
   }, []);
 
-  // 🔹 Mientras `loading` sea `true`, solo mostramos el Preloader
-  if (loading) {
-    return <Preloader />;
-  }
-
-  // 🔹 Cuando `loading` es `false`, mostramos la página completa
   return (
-    <div>
-      <Header />
-      <Formulario backgroundImage="/images/fotoedificio.png" />
-      <Compromiso />
-      <Formadepago />
-      <Categorias />
-      <Arquitecturayconstruccion />
-      <Footer />
-      <WhatsAppButton />
+    <div className="relative w-full h-screen bg-gray-900">
+      <AnimatePresence>
+        {loading && (
+          <motion.div
+            key="preloader"
+            className="fixed inset-0 flex items-center justify-center bg-gray-900 z-50"
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, scale: 1.2 }}
+            transition={{ duration: 1 }}
+          >
+            <Preloader />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* 🔹 La página siempre está presente, pero oculta hasta que el preloader termine */}
+      <motion.div
+        key="homepage"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: loading ? 0 : 1 }}
+        transition={{ duration: 1 }}
+        className="absolute inset-0 w-full h-full"
+      >
+        <Header />
+        <Formulario backgroundImage="/images/fotoedificio.png" />
+        <Compromiso />
+        <Formadepago />
+        <Categorias />
+        <Arquitecturayconstruccion />
+        <Footer />
+        <WhatsAppButton />
+        <Chatbot />
+      </motion.div>
     </div>
   );
 };
