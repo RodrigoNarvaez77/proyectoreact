@@ -18,39 +18,39 @@ const WhatsAppButton = () => {
         {
           name: "Asistente de Ventas",
           address: "Condell 615, Arauco",
-          link: "https://wa.me/+56976151892",
+          link: "https://wa.me/+56994458337",
         },
       ]
     : [
         {
           name: "Casa Matriz",
           address: "Condell 615, Arauco",
-          link: "https://wa.me/+56976151892",
+          link: "https://wa.me/+56926235712",
         },
         {
           name: "Sucursal Arauco",
           address: "O'Higgins 395",
-          link: "https://wa.me/+56912345678",
+          link: "https://wa.me/+56989036191",
         },
         {
           name: "Sucursal Curanilahue",
           address: "O'Higgins 810",
-          link: "https://wa.me/+56987654321",
+          link: "https://wa.me/+56932680304",
         },
         {
           name: "Sucursal Cañete",
           address: "Villagrán 1075",
-          link: "https://wa.me/+56912312345",
+          link: "https://wa.me/+56939534037",
         },
         {
           name: "Sucursal Huillinco",
           address: "Huillinco S/N",
-          link: "https://wa.me/+56998798765",
+          link: "https://wa.me/+56958799068",
         },
         {
           name: "Sucursal Santa Juana",
           address: "Lautaro 1097",
-          link: "https://wa.me/+56965465432",
+          link: "https://wa.me/+56958799094",
         },
       ];
 

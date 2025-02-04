@@ -64,7 +64,7 @@ const Header = () => {
                 <li>
                   <a
                     href="#proyectos"
-                    className="text-white hover:text-blue-400 transition duration-300"
+                    className="text-white hover:text-blue-400 transition duration-300 no-underline"
                   >
                     Proyectos
                   </a>
@@ -72,7 +72,7 @@ const Header = () => {
                 <li>
                   <a
                     href="#materiales"
-                    className="text-white hover:text-blue-400 transition duration-300"
+                    className="text-white hover:text-blue-400 transition duration-300 no-underline"
                   >
                     Materiales
                   </a>
@@ -80,7 +80,7 @@ const Header = () => {
                 <li>
                   <a
                     href="#contacto"
-                    className="text-white hover:text-blue-400 transition duration-300"
+                    className="text-white hover:text-blue-400 transition duration-300 no-underline"
                   >
                     Contacto
                   </a>
@@ -91,39 +91,23 @@ const Header = () => {
                 <li>
                   <a
                     href="#cotizacion"
-                    className="text-white hover:text-blue-400 transition duration-300"
+                    className="text-white hover:text-blue-400 transition duration-300 no-underline"
                   >
                     Cotización
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#compromiso"
-                    className="text-white hover:text-blue-400 transition duration-300"
+                    href="#cotizacion"
+                    className="text-white hover:text-blue-400 transition duration-300 no-underline"
                   >
-                    Compromiso
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#pago"
-                    className="text-white hover:text-blue-400 transition duration-300"
-                  >
-                    Compras
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#categorias"
-                    className="text-white hover:text-blue-400 transition duration-300"
-                  >
-                    Categorías
+                    Construccción
                   </a>
                 </li>
                 <li>
                   <a
                     href="#redes"
-                    className="text-white hover:text-blue-400 transition duration-300"
+                    className="text-white hover:text-blue-400 transition duration-300 no-underline"
                   >
                     Redes sociales
                   </a>

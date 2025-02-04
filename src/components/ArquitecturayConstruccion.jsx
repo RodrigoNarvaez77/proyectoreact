@@ -67,7 +67,7 @@ const Arquitecturayconstruccion = () => {
         {/* Botón */}
         <motion.a
           href="/construccion"
-          className="w-full px-4 py-2 text-white font-semibold rounded-lg bg-gradient-to-r from-[#4b4f75] to-[#2d3557] hover:bg-gradient-to-r hover:from-[#2d3557] hover:to-[#434762] focus:ring-2 focus:ring-blue-500"
+          className="w-full px-5 py-2 text-lg text-white font-semibold rounded-lg bg-gradient-to-r from-[#4b4f75] to-[#2d3557] hover:bg-gradient-to-r hover:from-[#2d3557] hover:to-[#434762] focus:ring-2 focus:ring-blue-500 no-underline"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           whileHover={{ scale: 1.05 }}

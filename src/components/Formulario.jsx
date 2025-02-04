@@ -69,29 +69,33 @@ const Formulario = ({ backgroundImage }) => {
       className="relative w-full h-screen bg-cover bg-center"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
+      {/* Contenedor de la notificación en la esquina superior derecha */}
+      <div className="absolute top-10 right-10 z-50">
+        <AnimatePresence>
+          {showNotification && (
+            <motion.div
+              className={`p-4 rounded-md shadow-lg ${
+                notification.type === "success"
+                  ? "bg-green-500 text-white"
+                  : "bg-red-500 text-white"
+              }`}
+              initial={{ opacity: 0, x: 50 }} // Aparece desde la derecha
+              animate={{ opacity: 1, x: 0 }} // Se mueve a su posición normal
+              exit={{ opacity: 0, x: 50 }} // Desaparece hacia la derecha
+              transition={{ duration: 0.5 }}
+            >
+              {notification.message}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {/* Contenedor del formulario */}
       <div className="absolute inset-0 flex items-center justify-center p-6 sm:justify-start sm:ml-10 lg:ml-20">
         <div className="w-full max-w-lg bg-opacity-80 bg-gray-800 p-8 rounded-lg shadow-xl">
           <h2 className="text-3xl font-bold text-white mb-6 text-center">
             Solicita una Cotización
           </h2>
-
-          <AnimatePresence>
-            {showNotification && (
-              <motion.div
-                className={`mb-4 p-4 rounded-md ${
-                  notification.type === "success"
-                    ? "bg-green-500 text-white"
-                    : "bg-red-500 text-white"
-                }`}
-                initial={{ opacity: 0 }} // Estado inicial de la notificación (transparente)
-                animate={{ opacity: 1 }} // Estado final de la notificación (visible)
-                exit={{ opacity: 0 }} // Estado cuando la notificación desaparece
-                transition={{ duration: 0.5 }} // Duración de la animación
-              >
-                {notification.message}
-              </motion.div>
-            )}
-          </AnimatePresence>
 
           <form id="contactForm" onSubmit={enviarFormulario}>
             <div className="mb-4">
