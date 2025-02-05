@@ -66,8 +66,11 @@ const Formulario = ({ backgroundImage }) => {
 
   return (
     <section
-      className="relative w-full h-screen bg-cover bg-center"
-      style={{ backgroundImage: `url(${backgroundImage})` }}
+      className="relative w-full h-screen bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+      }}
     >
       {/* Contenedor de la notificación en la esquina superior derecha */}
       <div className="absolute top-10 right-10 z-50">

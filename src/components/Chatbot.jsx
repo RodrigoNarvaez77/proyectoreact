@@ -63,7 +63,7 @@ const Chatbot = () => {
       lowerCaseMessage.includes("horario") ||
       lowerCaseMessage.includes("atención")
     ) {
-      return "🤖 Nuestro horario de atención es de 09:00 am a 14:00 pm y de 15:00 pm a 18:00 pm.";
+      return "🤖Nuestro horario de atención es de lunes a viernes de 09:00 AM a 14:00 PM y de 15:00 PM a 18:00 PM y sábados de 10:00 AM a 14:00 PM.";
     }
 
     // Variantes de dirección o sucursal
@@ -76,13 +76,13 @@ const Chatbot = () => {
     ) {
       let response = "🤖 Aquí están nuestras sucursales:\n";
       sucursales.forEach((sucursal) => {
-        response += `📍 ${sucursal.name}: ${sucursal.address} - [📲 Contactar]( ${sucursal.link})\n`;
+        response += `📍 ${sucursal.name}: ${sucursal.address}\n`;
       });
       return response;
     }
 
     // Respuesta predeterminada
-    return "🤖 No entendí tu pregunta. Por favor, contáctanos al 📞 +56 9 1234 5678.";
+    return "🤖 No entendí tu pregunta. Por favor, contáctanos al 📞 +569 6617 8043 .";
   };
 
   const handleSend = () => {
@@ -111,7 +111,7 @@ const Chatbot = () => {
         >
           {/* Header del chatbot */}
           <div className="flex items-center justify-between mb-2">
-            <h3 className="font-bold text-lg">Chatbot</h3>
+            <h3 className="font-bold text-lg">Asistente Virtual Solucenter</h3>
             <button
               onClick={() => setIsOpen(false)}
               className="text-gray-500 hover:text-gray-700"
@@ -144,15 +144,15 @@ const Chatbot = () => {
           </div>
 
           {/* Campo de entrada del usuario */}
-          <div className="flex mt-2">
+          <div className="flex w-full max-w-[400px] mt-2 mx-auto p-0">
             <input
-              className="flex-1 border p-2 rounded-l-lg focus:outline-none"
+              className="flex-1 max-w-[65%] border border-gray-300 p-2 rounded-l-lg focus:outline-none bg-gray-100"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Escribe algo..."
             />
             <button
-              className="bg-blue-500 text-white px-4 rounded-r-lg"
+              className="bg-blue-500 text-white px-4 py-2 rounded-r-lg focus:outline-none hover:bg-blue-600"
               onClick={handleSend}
             >
               Enviar
@@ -164,7 +164,7 @@ const Chatbot = () => {
       {/* Botón flotante */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-5 right-[90px] w-14 h-14 bg-blue-500 text-white rounded-full flex items-center justify-center shadow-lg z-50"
+        className="fixed bottom-5 right-[90px] w-14 h-14 bg-blue-500 text-white rounded-full flex items-center justify-center shadow-lg z-50 -translate-y-1"
         whileTap={{ scale: 0.9 }}
       >
         <IoChatbubbleEllipsesOutline size={28} />
