@@ -8,7 +8,10 @@ const Footer = () => {
   return (
     <div>
       {isConstruccionPage ? (
-        <footer className="bg-gradient-to-r from-black via-gray-800 to-black text-gray-100 text-center py-6">
+        <footer
+          className="bg-gradient-to-r from-black via-gray-800 to-black text-gray-100 text-center py-6"
+          id="redes"
+        >
           {/* Contenido del Footer */}
           <p className="text-sm mb-4">
             &copy; 2024 Solucenter Construcción. Todos los derechos reservados.
@@ -24,7 +27,10 @@ const Footer = () => {
           </div>
         </footer>
       ) : (
-        <footer className="bg-gradient-to-r from-black via-gray-800 to-black text-gray-100 text-center py-6">
+        <footer
+          className="bg-gradient-to-r from-black via-gray-800 to-black text-gray-100 text-center py-6"
+          id="redes"
+        >
           {/* Contenido del Footer */}
           <p className="text-sm mb-4">
             &copy; 2024 Ferretería Solucenter. Todos los derechos reservados.

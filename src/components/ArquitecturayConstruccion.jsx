@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const Arquitecturayconstruccion = () => {
   return (
-    <section className="bg-gray-50 text-center py-16">
+    <section className="bg-gray-50 text-center py-16" id="construccion">
       <div className="container mx-auto px-6">
         {/* Título */}
         <motion.h3

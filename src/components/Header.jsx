@@ -61,32 +61,30 @@ const Header = () => {
             {/* Rutas dinámicas según la página */}
             {isConstruccionPage ? (
               <>
-                <div className="flex justify-start items-center gap-4 bg-gray-900 p-4">
-                  <li>
-                    <a
-                      href="#proyectos"
-                      className="text-white hover:text-blue-400 transition duration-300 no-underline"
-                    >
-                      Proyectos
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#materiales"
-                      className="text-white hover:text-blue-400 transition duration-300 no-underline"
-                    >
-                      Materiales
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#contacto"
-                      className="text-white hover:text-blue-400 transition duration-300 no-underline"
-                    >
-                      Contacto
-                    </a>
-                  </li>
-                </div>
+                <li>
+                  <a
+                    href="#proyectos"
+                    className="text-white hover:text-blue-400 transition duration-300 no-underline"
+                  >
+                    Proyectos
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#compromiso"
+                    className="text-white hover:text-blue-400 transition duration-300 no-underline"
+                  >
+                    Compromiso
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#redes"
+                    className="text-white hover:text-blue-400 transition duration-300 no-underline"
+                  >
+                    Contacto
+                  </a>
+                </li>
               </>
             ) : (
               <>
@@ -100,7 +98,7 @@ const Header = () => {
                 </li>
                 <li>
                   <a
-                    href="#cotizacion"
+                    href="#construccion"
                     className="text-white hover:text-blue-400 transition duration-300 no-underline"
                   >
                     Construccción
