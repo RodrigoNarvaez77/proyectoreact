@@ -3,99 +3,70 @@ import { motion } from "framer-motion";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5"; // Ícono del chat
 
 const Chatbot = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // Estado para abrir/cerrar el chatbot
   const [messages, setMessages] = useState([
     { text: "🤖 ¡Hola! ¿En qué puedo ayudarte?", sender: "bot" },
   ]);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(""); // Entrada del usuario
+  const [loading, setLoading] = useState(false); // Estado para mostrar "escribiendo..."
 
-  // Lista de sucursales
-  const sucursales = [
-    {
-      name: "Casa Matriz",
-      address: "Condell 615, Arauco",
-    },
-    {
-      name: "Sucursal Arauco",
-      address: "O'Higgins 395",
-    },
-    {
-      name: "Sucursal Curanilahue",
-      address: "O'Higgins 810",
-    },
-    {
-      name: "Sucursal Cañete",
-      address: "Villagrán 1075",
-    },
-    {
-      name: "Sucursal Huillinco",
-      address: "Huillinco S/N",
-    },
-    {
-      name: "Sucursal Santa Juana",
-      address: "Lautaro 1097",
-    },
-  ];
-
-  // 📌 Función para determinar la respuesta del bot
-  const getBotResponse = (message) => {
-    const lowerCaseMessage = message.toLowerCase().trim();
-
-    // Variantes de saludos
-    const saludos = [
-      "hola",
-      "ola",
-      "holas",
-      "buenas",
-      "qué tal",
-      "hey",
-      "saludos",
-    ];
-    if (saludos.some((saludo) => lowerCaseMessage.includes(saludo))) {
-      const respuestasSaludo = ["🤖 ¡Hola! ¿Cómo puedo ayudarte?"];
-      return respuestasSaludo[
-        Math.floor(Math.random() * respuestasSaludo.length)
-      ];
+  // 📌 Función para manejar el envío de mensajes al backend
+  const handleSend = async () => {
+    if (!input.trim()) {
+      console.warn("⚠️ Advertencia: el mensaje está vacío o no es válido.");
+      return; // Evita enviar mensajes vacíos
     }
 
-    // Variantes de horario
-    if (
-      lowerCaseMessage.includes("horario") ||
-      lowerCaseMessage.includes("atención")
-    ) {
-      return "🤖Nuestro horario de atención es de lunes a viernes de 09:00 AM a 14:00 PM y de 15:00 PM a 18:00 PM y sábados de 10:00 AM a 14:00 PM.";
-    }
-
-    // Variantes de dirección o sucursal
-    if (
-      lowerCaseMessage.includes("dirección") ||
-      lowerCaseMessage.includes("direccion") ||
-      lowerCaseMessage.includes("sucursal") ||
-      lowerCaseMessage.includes("ubicación") ||
-      lowerCaseMessage.includes("dónde están")
-    ) {
-      let response = "🤖 Aquí están nuestras sucursales:\n";
-      sucursales.forEach((sucursal) => {
-        response += `📍 ${sucursal.name}: ${sucursal.address}\n`;
-      });
-      return response;
-    }
-
-    // Respuesta predeterminada
-    return "🤖 No entendí tu pregunta. Por favor, contáctanos al 📞 +569 6617 8043 .";
-  };
-
-  const handleSend = () => {
-    if (!input.trim()) return;
-    const userMessage = { text: input, sender: "user" };
+    // Agregar el mensaje del usuario al chat
+    const userMessage = { text: input.trim(), sender: "user" };
     setMessages((prevMessages) => [...prevMessages, userMessage]);
 
-    setTimeout(() => {
-      const botResponse = { text: getBotResponse(input), sender: "bot" };
-      setMessages((prevMessages) => [...prevMessages, botResponse]);
-    }, 1000);
+    setInput(""); // Limpiar el campo de entrada
+    setLoading(true); // Mostrar "escribiendo..."
 
-    setInput("");
+    try {
+      // Crear el cuerpo de la solicitud
+      const requestBody = JSON.stringify({ mensaje: input.trim() });
+      console.log("📤 Enviando a la API:", requestBody);
+
+      const response = await fetch(
+        "https://nodejsasistentevirtual-1.onrender.com/api/data/message",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: requestBody,
+        }
+      );
+
+      console.log("📩 Respuesta de la API:", response);
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(
+          `Error HTTP: ${response.status} - ${
+            errorData.error || "Error desconocido"
+          }`
+        );
+      }
+
+      const data = await response.json();
+      setLoading(false);
+
+      // Agregar la respuesta del bot al chat
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { text: data.respuesta, sender: "bot" },
+      ]);
+    } catch (error) {
+      setLoading(false);
+      console.error("❌ Error al conectar con la API:", error);
+
+      // Mostrar el error en el chat
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { text: `❌ Error: ${error.message}`, sender: "bot" },
+      ]);
+    }
   };
 
   return (
@@ -141,6 +112,11 @@ const Chatbot = () => {
                 </span>
               </div>
             ))}
+
+            {/* Mostrar "Escribiendo..." cuando la API está procesando */}
+            {loading && (
+              <div className="text-left text-gray-500">🤖 Escribiendo...</div>
+            )}
           </div>
 
           {/* Campo de entrada del usuario */}
@@ -150,10 +126,16 @@ const Chatbot = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Escribe algo..."
+              disabled={loading} // Deshabilitar si está cargando
             />
             <button
-              className="bg-blue-500 text-white px-4 py-2 rounded-r-lg focus:outline-none hover:bg-blue-600"
+              className={`px-4 py-2 rounded-r-lg ${
+                loading
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-blue-500 text-white hover:bg-blue-600"
+              }`}
               onClick={handleSend}
+              disabled={loading} // Deshabilitar si está cargando
             >
               Enviar
             </button>
@@ -164,7 +146,7 @@ const Chatbot = () => {
       {/* Botón flotante */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-5 right-[90px] w-14 h-14 bg-blue-500 text-white rounded-full flex items-center justify-center shadow-lg z-50 -translate-y-1"
+        className="fixed bottom-5 right-[90px] w-14 h-14 bg-blue-500 text-white rounded-full flex items-center justify-center shadow-lg z-50"
         whileTap={{ scale: 0.9 }}
       >
         <IoChatbubbleEllipsesOutline size={28} />
