@@ -55,7 +55,7 @@ const Chatbot = () => {
       // Agregar la respuesta del bot al chat
       setMessages((prevMessages) => [
         ...prevMessages,
-        { text: data.respuesta, sender: "bot" },
+        { text: `🤖 ${data.respuesta}`, sender: "bot" },
       ]);
     } catch (error) {
       setLoading(false);
