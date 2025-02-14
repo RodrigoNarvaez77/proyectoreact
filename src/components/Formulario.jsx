@@ -4,7 +4,9 @@ import { motion, AnimatePresence } from "framer-motion"; // Importamos las herra
 
 const Formulario = ({ backgroundImage }) => {
   const [formData, setFormData] = useState({
+    rut: "",
     nombre: "",
+    comuna: "",
     email: "",
     telefono: "",
     mensaje: "",
@@ -28,7 +30,9 @@ const Formulario = ({ backgroundImage }) => {
         "service_k65j17r",
         "template_bs86x61",
         {
+          rut: formData.rut,
           nombre: formData.nombre,
+          comuna: formData.comuna,
           email: formData.email,
           telefono: formData.telefono,
           mensaje: formData.mensaje,
@@ -42,7 +46,14 @@ const Formulario = ({ backgroundImage }) => {
             type: "success",
           });
           setShowNotification(true);
-          setFormData({ nombre: "", email: "", telefono: "", mensaje: "" });
+          setFormData({
+            rut: "",
+            nombre: "",
+            comuna: "",
+            email: "",
+            telefono: "",
+            mensaje: "",
+          });
         },
         () => {
           setNotification({
@@ -66,10 +77,11 @@ const Formulario = ({ backgroundImage }) => {
 
   return (
     <section
-      className="relative w-full h-screen bg-cover bg-center bg-no-repeat"
+      className="relative w-full min-h-screen flex flex-col bg-cover bg-center"
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
       {/* Contenedor de la notificación en la esquina superior derecha */}
@@ -94,13 +106,32 @@ const Formulario = ({ backgroundImage }) => {
       </div>
 
       {/* Contenedor del formulario */}
-      <div className="absolute inset-0 flex items-center justify-center p-6 sm:justify-start sm:ml-10 lg:ml-20">
+      <div className="flex flex-grow items-center justify-start p-6 sm:ml-10 lg:ml-20">
         <div className="w-full max-w-lg bg-opacity-80 bg-gray-800 p-8 rounded-lg shadow-xl">
           <h2 className="text-3xl font-bold text-white mb-6 text-center">
             Solicita una Cotización
           </h2>
 
           <form id="contactForm" onSubmit={enviarFormulario}>
+            <div className="mb-4">
+              <label
+                htmlFor="rut"
+                className="block text-sm font-medium text-white"
+              >
+                Rut
+              </label>
+              <input
+                type="text"
+                id="rut"
+                name="rut"
+                placeholder="Tu rut"
+                value={formData.rut}
+                onChange={handleChange}
+                required
+                className="mt-1 block w-full rounded-md border-gray-600 bg-gray-700 text-white placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+              />
+            </div>
+
             <div className="mb-4">
               <label
                 htmlFor="nombre"
@@ -114,6 +145,25 @@ const Formulario = ({ backgroundImage }) => {
                 name="nombre"
                 placeholder="Tu nombre"
                 value={formData.nombre}
+                onChange={handleChange}
+                required
+                className="mt-1 block w-full rounded-md border-gray-600 bg-gray-700 text-white placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label
+                htmlFor="comuna"
+                className="block text-sm font-medium text-white"
+              >
+                Comuna
+              </label>
+              <input
+                type="text"
+                id="comuna"
+                name="comuna"
+                placeholder="Tu comuna"
+                value={formData.comuna}
                 onChange={handleChange}
                 required
                 className="mt-1 block w-full rounded-md border-gray-600 bg-gray-700 text-white placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"

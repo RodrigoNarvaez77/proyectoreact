@@ -5,7 +5,10 @@ import { IoChatbubbleEllipsesOutline } from "react-icons/io5"; // Ícono del cha
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false); // Estado para abrir/cerrar el chatbot
   const [messages, setMessages] = useState([
-    { text: "🤖 ¡Hola! ¿En qué puedo ayudarte?", sender: "bot" },
+    {
+      text: "🤖¡Hola! ¿En qué puedo ayudarte? Puedes preguntarme sobre materiales, productos, stock, precios, horarios o cualquier información sobre la ferretería. También puedo ayudarte a saber qué necesitas para hacer tu arreglo o construcción. 🏗️🔨",
+      sender: "bot",
+    },
   ]);
   const [input, setInput] = useState(""); // Entrada del usuario
   const [loading, setLoading] = useState(false); // Estado para mostrar "escribiendo..."
