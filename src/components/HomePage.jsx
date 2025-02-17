@@ -58,6 +58,7 @@ const HomePage = () => {
       >
         <Header />
         <Formulario backgroundImage="/images/fotoedificio.png" />
+        <Compromiso />
         <Arquitecturayconstruccion />
         <Footer />
         <WhatsAppButton />

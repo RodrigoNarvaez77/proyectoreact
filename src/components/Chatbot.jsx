@@ -6,7 +6,7 @@ const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false); // Estado para abrir/cerrar el chatbot
   const [messages, setMessages] = useState([
     {
-      text: "🤖¡Hola! ¿En qué puedo ayudarte? Puedes preguntarme sobre materiales, productos, stock, precios, horarios o cualquier información sobre la ferretería. También puedo ayudarte a saber qué necesitas para hacer tu arreglo o construcción. 🏗️🔨",
+      text: "🦊¡Hola! ¿En qué puedo ayudarte? Puedes preguntarme sobre materiales, productos, stock, precios, horarios o cualquier información sobre la ferretería. También puedo ayudarte a saber qué necesitas para hacer tu arreglo o construcción. 🏗️🔨",
       sender: "bot",
     },
   ]);
@@ -58,7 +58,7 @@ const Chatbot = () => {
       // Agregar la respuesta del bot al chat
       setMessages((prevMessages) => [
         ...prevMessages,
-        { text: `🤖 ${data.respuesta}`, sender: "bot" },
+        { text: `🦊 ${data.respuesta}`, sender: "bot" },
       ]);
     } catch (error) {
       setLoading(false);
@@ -118,7 +118,7 @@ const Chatbot = () => {
 
             {/* Mostrar "Escribiendo..." cuando la API está procesando */}
             {loading && (
-              <div className="text-left text-gray-500">🤖 Escribiendo...</div>
+              <div className="text-left text-gray-500">🦊 Escribiendo...</div>
             )}
           </div>
 
