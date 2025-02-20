@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { IoChatbubbleEllipsesOutline } from "react-icons/io5"; // Ícono del chat
+import { GiTalk } from "react-icons/gi";
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false); // Estado para abrir/cerrar el chatbot
@@ -152,7 +152,7 @@ const Chatbot = () => {
         className="fixed bottom-5 right-[90px] w-14 h-14 bg-blue-500 text-white rounded-full flex items-center justify-center shadow-lg z-50"
         whileTap={{ scale: 0.9 }}
       >
-        <IoChatbubbleEllipsesOutline size={28} />
+        <GiTalk size={28} />
       </motion.button>
     </>
   );
