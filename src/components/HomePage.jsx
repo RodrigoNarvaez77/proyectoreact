@@ -57,7 +57,7 @@ const HomePage = () => {
         className="absolute inset-0 w-full h-full"
       >
         <Header />
-        <Formulario backgroundImage="/images/fotoedificio.png" />
+        <Formulario backgroundImage="/images/fotoprincipal.jpg" />
         <Compromiso />
         <Arquitecturayconstruccion />
         <Footer />

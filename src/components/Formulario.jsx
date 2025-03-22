@@ -77,7 +77,7 @@ const Formulario = ({ backgroundImage }) => {
 
   return (
     <section
-      className="relative w-full min-h-screen flex flex-col bg-cover bg-center"
+      className="w-full min-h-screen bg-no-repeat bg-cover bg-center aspect-[4/3] md:aspect-auto flex items-center justify-center"
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
@@ -107,8 +107,11 @@ const Formulario = ({ backgroundImage }) => {
 
       {/* Contenedor del formulario */}
       <div className="flex flex-grow items-center justify-start p-6 sm:ml-10 lg:ml-20">
-        <div className="w-full max-w-lg bg-opacity-80 bg-gray-800 p-8 rounded-lg shadow-xl">
-          <h2 className="text-3xl font-bold text-white mb-6 text-center">
+        <div className="w-full max-w-lg bg-opacity-80 bg-gray-800 p-8 rounded-lg shadow-xl overflow-hidden">
+          <h2
+            className="text-3xl font-bold text-white mb-6 text-center "
+            id="contactForm2"
+          >
             Solicita una Cotización
           </h2>
 

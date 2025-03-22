@@ -22,69 +22,47 @@ const Compromiso = () => {
         {isConstruccionPage ? (
           <>
             {/* Contenido para la página de construcción */}
-            <div className="text-center mb-5">
-              <h2 id="compromiso" className="text-4xl font-bold text-gray-800">
-                Comprometidos con tus proyectos de construcción
-              </h2>
-              <p className="text-lg text-gray-600 mt-4">
-                Proveemos soluciones integrales para tus proyectos de
-                construcción. Con un inventario completo y un equipo
-                especializado, garantizamos calidad, eficiencia y soporte en
-                cada etapa.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
-              <div className="flex flex-col items-center">
-                <i className="bi bi-bricks text-5xl text-blue-700"></i>
-                <h5 className="text-xl font-semibold mt-4 text-gray-800">
-                  Materiales de Calidad
-                </h5>
-                <p className="text-gray-600 mt-2">
-                  Ofrecemos los mejores materiales para garantizar la
-                  durabilidad de tus proyectos.
+            <section className="bg-white py-20">
+              <div className="max-w-6xl mx-auto px-6 text-center">
+                <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-6">
+                  Gestión Integral de Proyectos
+                </h2>
+                <p className="text-gray-600 text-lg md:text-xl mb-12 max-w-3xl mx-auto">
+                  Cada fase está planificada para ofrecer excelencia técnica,
+                  eficiencia y cumplimiento en todas las etapas del desarrollo
+                  de tu obra.
                 </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+                  {[
+                    "Planificación Programa de Trabajo.",
+                    "Antecedentes, Requerimientos.",
+                    "Análisis de Factibilidad Técnico-Regulatoria-Económica.",
+                    "Diseño Conceptual.",
+                    "Documentos de Arquitectura y Especialidades.",
+                    "Gestión de Permisos.",
+                    "Planificación de Materiales y Maestros Contratistas.",
+                    "Ejecución.",
+                    "Inspección Técnica de Obras.",
+                    "Recepción Final.",
+                    "Garantía.",
+                  ].map((step, index) => (
+                    <div
+                      key={index}
+                      className="bg-white border border-gray-200 rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300"
+                    >
+                      <h4 className="text-xl font-semibold text-gray-800 mb-2">
+                        <span className="text-blue-600 font-bold mr-2">
+                          {index + 1}.
+                        </span>
+                        {step}
+                      </h4>
+                      {/* Aquí podrías agregar una breve descripción si lo deseas */}
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="flex flex-col items-center">
-                <i className="bi bi-person-lines-fill text-5xl text-blue-700"></i>
-                <h5 className="text-xl font-semibold mt-4 text-gray-800">
-                  Asesoría Experta
-                </h5>
-                <p className="text-gray-600 mt-2">
-                  Un equipo de especialistas listos para apoyarte en cada paso
-                  de tu proyecto.
-                </p>
-              </div>
-              <div className="flex flex-col items-center">
-                <i className="bi bi-truck text-5xl text-blue-700"></i>
-                <h5 className="text-xl font-semibold mt-4 text-gray-800">
-                  Logística Eficiente
-                </h5>
-                <p className="text-gray-600 mt-2">
-                  Entregamos materiales de manera rápida y segura directamente a
-                  tu obra.
-                </p>
-              </div>
-              <div className="flex flex-col items-center">
-                <i className="bi bi-gear-wide-connected text-5xl text-blue-700"></i>
-                <h5 className="text-xl font-semibold mt-4 text-gray-800">
-                  Herramientas Modernas
-                </h5>
-                <p className="text-gray-600 mt-2">
-                  Equipamiento de última generación para trabajos más precisos y
-                  eficientes.
-                </p>
-              </div>
-              <div className="flex flex-col items-center">
-                <i className="bi bi-hammer text-5xl text-blue-700"></i>
-                <h5 className="text-xl font-semibold mt-4 text-gray-800">
-                  Soluciones Integrales
-                </h5>
-                <p className="text-gray-600 mt-2">
-                  Todo lo que necesitas para construcción en un solo lugar, al
-                  mejor precio.
-                </p>
-              </div>
-            </div>
+            </section>
           </>
         ) : (
           <>

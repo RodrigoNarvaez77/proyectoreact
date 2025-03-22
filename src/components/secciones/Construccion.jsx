@@ -10,11 +10,10 @@ const Construccion = () => {
   return (
     <div>
       <Header />
-      <Formulario backgroundImage="/images/landing2.webp" />
+      <Formulario backgroundImage="/images/solucenterconstruccion.webp" />
       <Compromiso />
       <Proyectos />
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 };
