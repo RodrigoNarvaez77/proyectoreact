@@ -23,43 +23,34 @@ const Compromiso = () => {
           <>
             {/* Contenido para la página de construcción */}
             <section className="bg-white py-20">
-              <div className="max-w-6xl mx-auto px-6 text-center">
+              <div className="max-w-5xl mx-auto px-6 text-center">
                 <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-6">
                   Gestión Integral de Proyectos
                 </h2>
-                <p className="text-gray-600 text-lg md:text-xl mb-12 max-w-3xl mx-auto">
-                  Cada fase está planificada para ofrecer excelencia técnica,
-                  eficiencia y cumplimiento en todas las etapas del desarrollo
-                  de tu obra.
+                <p className="text-gray-600 text-lg md:text-xl mb-10 max-w-3xl mx-auto">
+                  Nuestro enfoque estructurado nos permite ofrecer un servicio
+                  eficiente y de alta calidad en todas las etapas del proyecto.
                 </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
-                  {[
-                    "Planificación Programa de Trabajo.",
-                    "Antecedentes, Requerimientos.",
-                    "Análisis de Factibilidad Técnico-Regulatoria-Económica.",
-                    "Diseño Conceptual.",
-                    "Documentos de Arquitectura y Especialidades.",
-                    "Gestión de Permisos.",
-                    "Planificación de Materiales y Maestros Contratistas.",
-                    "Ejecución.",
-                    "Inspección Técnica de Obras.",
-                    "Recepción Final.",
-                    "Garantía.",
-                  ].map((step, index) => (
-                    <div
-                      key={index}
-                      className="bg-white border border-gray-200 rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300"
-                    >
-                      <h4 className="text-xl font-semibold text-gray-800 mb-2">
-                        <span className="text-blue-600 font-bold mr-2">
-                          {index + 1}.
-                        </span>
-                        {step}
-                      </h4>
-                      {/* Aquí podrías agregar una breve descripción si lo deseas */}
-                    </div>
-                  ))}
+                {/* Contenedor único con bullets */}
+                <div className="bg-gray-100 border border-gray-200 rounded-2xl p-10 shadow-lg text-left">
+                  <ul className="list-disc list-inside space-y-4 text-gray-700 text-lg leading-relaxed">
+                    <li>Programa de Trabajo.</li>
+                    <li>Antecedentes, Requerimientos.</li>
+                    <li>
+                      Análisis de Factibilidad Técnico-Regulatoria-Económica.
+                    </li>
+                    <li>Diseño Conceptual.</li>
+                    <li>Documentos de Arquitectura y Especialidades.</li>
+                    <li>Gestión de Permisos.</li>
+                    <li>
+                      Planificación de Materiales y Maestros Contratistas.
+                    </li>
+                    <li>Ejecución.</li>
+                    <li>Inspección Técnica de Obras.</li>
+                    <li>Recepción Final.</li>
+                    <li>Garantía.</li>
+                  </ul>
                 </div>
               </div>
             </section>
