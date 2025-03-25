@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Compromiso = () => {
   const location = useLocation(); // Obtener la ruta actual
@@ -58,66 +59,78 @@ const Compromiso = () => {
         ) : (
           <>
             {/* Contenido por defecto */}
-            <div className="text-center mb-10">
-              <h2 id="compromiso" className="text-4xl font-bold text-gray-800">
-                Comprometidos en cada etapa de tu proyecto
-              </h2>
-              <p className="text-lg text-gray-600 mt-4">
-                Tenemos todo lo necesario para tu proyecto. Nuestro amplio stock
-                asegura disponibilidad en todos nuestros productos, garantizando
-                calidad y eficiencia en cada paso.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
+            <div>
               <div className="flex flex-col items-center">
-                <i className="bi bi-box2 text-5xl text-green-700"></i>
-                <h5 className="text-xl font-semibold mt-4 text-gray-800">
-                  Amplio Stock
-                </h5>
-                <p className="text-gray-600 mt-2">
-                  Garantizamos disponibilidad constante para satisfacer tus
-                  necesidades.
-                </p>
-              </div>
-              <div className="flex flex-col items-center">
-                <i className="bi bi-people text-5xl text-green-700"></i>
-                <h5 className="text-xl font-semibold mt-4 text-gray-800">
-                  Gran Equipo
-                </h5>
-                <p className="text-gray-600 mt-2">
-                  Nuestro personal está comprometido con un servicio cordial y
-                  eficiente.
-                </p>
-              </div>
-              <div className="flex flex-col items-center">
-                <i className="bi bi-cash-coin text-5xl text-green-700"></i>
-                <h5 className="text-xl font-semibold mt-4 text-gray-800">
-                  Buenos Precios
-                </h5>
-                <p className="text-gray-600 mt-2">
-                  Ofrecemos productos de calidad a precios competitivos y
-                  accesibles.
-                </p>
-              </div>
-              <div className="flex flex-col items-center">
-                <i className="bi bi-patch-check text-5xl text-green-700"></i>
-                <h5 className="text-xl font-semibold mt-4 text-gray-800">
-                  Calidad
-                </h5>
-                <p className="text-gray-600 mt-2">
-                  Calidad superior garantizada en cada pieza, con precisión y
-                  excelencia.
-                </p>
-              </div>
-              <div className="flex flex-col items-center">
-                <i className="bi bi-clock-history text-5xl text-green-700"></i>
-                <h5 className="text-xl font-semibold mt-4 text-gray-800">
-                  Rápida Respuesta
-                </h5>
-                <p className="text-gray-600 mt-2">
-                  Respondemos con prontitud para resolver tus requerimientos de
-                  manera efectiva.
-                </p>
+                {/* Contenido por defecto */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                  className="text-center mb-12"
+                >
+                  <h2
+                    id="compromiso"
+                    className="text-4xl font-bold text-gray-800"
+                  >
+                    Comprometidos en cada etapa de tu proyecto
+                  </h2>
+                  <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+                    Tenemos todo lo necesario para tu proyecto. Nuestro amplio
+                    stock asegura disponibilidad en todos nuestros productos,
+                    garantizando calidad y eficiencia en cada paso.
+                  </p>
+                </motion.div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 text-center">
+                  {[
+                    {
+                      icon: "bi-box2",
+                      title: "Amplio Stock",
+                      text: "Garantizamos disponibilidad constante para satisfacer tus necesidades.",
+                    },
+                    {
+                      icon: "bi-people",
+                      title: "Gran Equipo",
+                      text: "Nuestro personal está comprometido con un servicio cordial y eficiente.",
+                    },
+                    {
+                      icon: "bi-cash-coin",
+                      title: "Buenos Precios",
+                      text: "Ofrecemos productos de calidad a precios competitivos y accesibles.",
+                    },
+                    {
+                      icon: "bi-patch-check",
+                      title: "Calidad",
+                      text: "Calidad superior garantizada en cada pieza, con precisión y excelencia.",
+                    },
+                    {
+                      icon: "bi-clock-history",
+                      title: "Rápida Respuesta",
+                      text: "Respondemos con prontitud para resolver tus requerimientos de manera efectiva.",
+                    },
+                  ].map((item, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      whileHover={{ scale: 1.05 }}
+                      className="flex flex-col items-center bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition"
+                    >
+                      <motion.i
+                        className={`bi ${item.icon} text-5xl text-green-700`}
+                        whileHover={{ scale: 1.2 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      />
+                      <h5 className="text-xl font-semibold mt-4 text-gray-800">
+                        {item.title}
+                      </h5>
+                      <p className="text-gray-600 mt-2">{item.text}</p>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </div>
           </>
