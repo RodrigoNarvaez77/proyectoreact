@@ -1,25 +1,38 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const Despacho = () => {
   return (
     <section className="w-full bg-white py-16 px-6">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        {/* Imagen a la izquierda */}
-        <div className="w-full">
+        {/* Imagen primero en mobile (ordenada por reverse en md+) */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="order-1 md:order-none"
+        >
           <img
-            src="/images/despacho.png" // Reemplaza si es necesario
+            src="/images/despacho.png"
             alt="Despacho Solucenter"
-            className="w-full h-auto object-cover rounded-2xl shadow-xl"
+            className="w-full h-auto object-cover rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300"
           />
-        </div>
+        </motion.div>
 
-        {/* Información a la derecha */}
-        <div className="text-left">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 ml-6">
-            Despacho Gratuito 🛻
+        {/* Información a la derecha (o debajo en mobile) */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-left"
+        >
+          <h2 className="text-3xl font-bold text-gray-900 mb-6 ml-2">
+            Despacho Gratuito
           </h2>
 
-          <ul className="text-gray-800 text-lg space-y-3 font-light leading-relaxed">
+          <ul className="text-gray-800 text-lg space-y-3 font-light leading-relaxed px-2">
             <li>
               <strong className="text-gray-900 font-semibold">Zonas:</strong>{" "}
               Arauco, O'Higgins, Curanilahue, Cañete, Huillinco, Santa Juana.
@@ -36,7 +49,7 @@ const Despacho = () => {
               segura y rápida.
             </li>
           </ul>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

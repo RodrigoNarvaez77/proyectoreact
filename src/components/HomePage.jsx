@@ -8,7 +8,7 @@ import WhatsAppButton from "./WhatsAppButton";
 import Compromiso from "./secciones/Compromiso";
 import Categorias from "./secciones/Categorias";
 import Despacho from "./despacho";
-import Arquitecturayconstruccion from "./ArquitecturayConstruccion";
+import CategoriaFerreteria from "./CategoriasFerreteria";
 import Formadepago from "./Formasdepago";
 import Chatbot from "./Chatbot";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -61,7 +61,7 @@ const HomePage = () => {
         <Formulario backgroundImage="/images/fotoprincipal.jpg" />
         <Compromiso />
         <Despacho />
-        <Arquitecturayconstruccion />
+        <CategoriaFerreteria />
         <Footer />
         <WhatsAppButton />
         <Chatbot />

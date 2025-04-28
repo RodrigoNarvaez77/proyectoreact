@@ -107,7 +107,7 @@ const Compromiso = () => {
                     {
                       icon: "bi-clock-history",
                       title: "Rápida Respuesta",
-                      text: "Respondemos con prontitud para resolver tus requerimientos de manera efectiva.",
+                      text: "Consúltanos tus dudas y solicita cotizaciones rápidamente a través de nuestro formulario o por WhatsApp.",
                     },
                   ].map((item, index) => (
                     <motion.div
