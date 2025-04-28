@@ -64,7 +64,6 @@ const HomePage = () => {
         <CategoriaFerreteria />
         <Footer />
         <WhatsAppButton />
-        <Chatbot />
       </motion.div>
     </div>
   );
