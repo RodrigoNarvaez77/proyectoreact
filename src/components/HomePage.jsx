@@ -13,6 +13,7 @@ import Formadepago from "./Formasdepago";
 import Chatbot from "./Chatbot";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import NotificationListener from "./NotificationListener";
 
 const HomePage = () => {
   const [loading, setLoading] = useState(true);
@@ -58,6 +59,7 @@ const HomePage = () => {
         className="absolute inset-0 w-full h-full"
       >
         <Header />
+        <NotificationListener />
         <Formulario backgroundImage="/images/fotoprincipal.jpg" />
         <Compromiso />
         <Despacho />
