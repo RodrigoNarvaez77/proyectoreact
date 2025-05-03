@@ -40,29 +40,10 @@ const Formulario = ({ backgroundImage }) => {
           telefono: "",
           mensaje: "",
         });
-
-        // ✅ Enviar datos al backend en segundo plano
-        fetch("https://cotizador-k8g4.onrender.com/guardar-cotizacion", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        })
-          .then((res) => {
-            if (!res.ok) throw new Error("Error al guardar en el backend");
-            console.log("📬 Cotización guardada en la base de datos");
-          })
-          .catch((err) => {
-            console.error("❌ Error al guardar en backend:", err);
-            eventBus.emit(
-              "form:warning",
-              "El correo fue enviado, pero no se guardó en la base de datos."
-            );
-          });
       })
       .catch(() => {
         eventBus.emit("form:error", "Error al enviar el formulario.");
       })
-
       .finally(() => {
         setLoading(false);
       });
