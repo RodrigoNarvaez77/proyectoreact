@@ -33,9 +33,39 @@ const WhatsAppButton = () => {
       ]
     : [
         {
-          name: "Daniela Toledo",
-          address: "Venta Web",
-          link: "https://wa.me/+56966178043",
+          name: "Casa Matriz",
+          address: "Condell 615, Arauco",
+          link: "https://wa.me/+56926235712",
+          icon: "whatsapp",
+        },
+        {
+          name: "Sucursal Arauco",
+          address: "O'Higgins 395",
+          link: "https://wa.me/+56989036191",
+          icon: "whatsapp",
+        },
+        {
+          name: "Sucursal Curanilahue",
+          address: "O'Higgins 810",
+          link: "https://wa.me/+56932680304",
+          icon: "whatsapp",
+        },
+        {
+          name: "Sucursal Cañete",
+          address: "Villagrán 1075",
+          link: "https://wa.me/+56939534037",
+          icon: "whatsapp",
+        },
+        {
+          name: "Sucursal Huillinco",
+          address: "Huillinco S/N",
+          link: "https://wa.me/+56958799068",
+          icon: "whatsapp",
+        },
+        {
+          name: "Sucursal Santa Juana",
+          address: "Lautaro 1097",
+          link: "https://wa.me/+56958799094",
           icon: "whatsapp",
         },
         {
