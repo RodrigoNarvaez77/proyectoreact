@@ -34,7 +34,7 @@ const WhatsAppButton = () => {
     : [
         {
           name: "Daniela Toledo",
-          address: "Venta Web",
+          address: "Arauco - Curanilahue - Cañete - Sta Juana",
           link: "https://wa.me/+56966178043",
           icon: "whatsapp",
         },
