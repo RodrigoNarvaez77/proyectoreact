@@ -111,15 +111,15 @@ const Chatbot = ({ onClose }) => {
       {/* Input de mensaje */}
       <div className="flex border-t pt-2">
         <input
-          className="flex-1 border border-gray-300 p-2 rounded-l-lg focus:outline-none bg-gray-50 text-sm"
+          className="flex-grow border border-gray-300 p-2 rounded-l-lg focus:outline-none bg-gray-50 text-sm"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          onKeyDown={handleKeyDown} // 👈 Detectamos Enter aquí
+          onKeyDown={handleKeyDown}
           placeholder="Escribe algo..."
           disabled={loading}
         />
         <button
-          className={`px-4 py-2 rounded-r-lg text-sm ${
+          className={`px-6 py-2 rounded-r-lg text-sm font-medium ${
             loading
               ? "bg-gray-400 cursor-not-allowed"
               : "bg-green-600 text-white hover:bg-green-700"

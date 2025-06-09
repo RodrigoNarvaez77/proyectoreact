@@ -98,10 +98,10 @@ const Header = () => {
                 </li>
                 <li>
                   <a
-                    href="#construccion"
+                    href="#categorias"
                     className="text-white hover:text-blue-400 transition duration-300 no-underline"
                   >
-                    Construccción
+                    Categorias
                   </a>
                 </li>
                 <li>
@@ -109,7 +109,7 @@ const Header = () => {
                     href="#redes"
                     className="text-white hover:text-blue-400 transition duration-300 no-underline"
                   >
-                    Contacto
+                    Redes Sociales
                   </a>
                 </li>
               </>

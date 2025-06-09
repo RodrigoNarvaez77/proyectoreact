@@ -62,7 +62,7 @@ const CategoriasFerreteria = () => {
 
   return (
     <section className="bg-gray-50 text-center py-16" id="categorias">
-      <div className="container mx-auto px-6">
+      <div id="categorias" className="container mx-auto px-6">
         <motion.h3
           className="text-3xl font-bold text-gray-800 mb-10"
           initial={{ opacity: 0, y: -20 }}
