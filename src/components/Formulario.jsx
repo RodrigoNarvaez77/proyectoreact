@@ -4,7 +4,6 @@ import eventBus from "../utils/eventBus"; // Asegúrate de tener este módulo cr
 
 const Formulario = ({ backgroundImage }) => {
   const [formData, setFormData] = useState({
-    rut: "",
     nombre: "",
     comuna: "",
     email: "",
@@ -33,7 +32,6 @@ const Formulario = ({ backgroundImage }) => {
       .then(() => {
         eventBus.emit("form:success", "Formulario enviado correctamente.");
         setFormData({
-          rut: "",
           nombre: "",
           comuna: "",
           email: "",
@@ -85,7 +83,6 @@ const Formulario = ({ backgroundImage }) => {
 
           <form id="contactForm" onSubmit={enviarFormulario}>
             {[
-              { id: "rut", label: "Rut" },
               { id: "nombre", label: "Nombre" },
               { id: "comuna", label: "Comuna" },
               { id: "email", label: "Correo Electrónico", type: "email" },
