@@ -1,3 +1,4 @@
+// src/components/Formulario.test.jsx
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import Formulario from "./Formulario";
 import eventBus from "../utils/eventBus";
@@ -21,10 +22,11 @@ describe("Formulario - pruebas completas", () => {
     vi.clearAllMocks(); // Limpia mocks entre tests
   });
 
+  afterEach(() => {
+    vi.restoreAllMocks(); // Restaura mocks como fetch
+  });
+
   const llenarFormulario = () => {
-    fireEvent.change(screen.getByPlaceholderText("Tu rut"), {
-      target: { value: "12345678-9" },
-    });
     fireEvent.change(screen.getByPlaceholderText("Tu nombre"), {
       target: { value: "Juan Pérez" },
     });
@@ -51,7 +53,7 @@ describe("Formulario - pruebas completas", () => {
 
     render(<Formulario backgroundImage="/test.jpg" />);
     llenarFormulario();
-    fireEvent.click(screen.getByRole("button"));
+    fireEvent.click(screen.getByRole("button", { name: /enviar/i }));
 
     await waitFor(() => {
       expect(eventBus.emit).toHaveBeenCalledWith(
@@ -66,7 +68,7 @@ describe("Formulario - pruebas completas", () => {
 
     render(<Formulario backgroundImage="/test.jpg" />);
     llenarFormulario();
-    fireEvent.click(screen.getByRole("button"));
+    fireEvent.click(screen.getByRole("button", { name: /enviar/i }));
 
     await waitFor(() => {
       expect(eventBus.emit).toHaveBeenCalledWith(
@@ -83,7 +85,7 @@ describe("Formulario - pruebas completas", () => {
 
     render(<Formulario backgroundImage="/test.jpg" />);
     llenarFormulario();
-    fireEvent.click(screen.getByRole("button"));
+    fireEvent.click(screen.getByRole("button", { name: /enviar/i }));
 
     await waitFor(() => {
       expect(eventBus.emit).toHaveBeenCalledWith(

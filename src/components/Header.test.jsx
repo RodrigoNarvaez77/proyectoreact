@@ -48,8 +48,8 @@ describe("Header", () => {
     );
 
     expect(screen.getByText("Cotización")).toBeInTheDocument();
-    expect(screen.getByText("Construccción")).toBeInTheDocument();
-    expect(screen.getByText("Contacto")).toBeInTheDocument();
+    expect(screen.getByText("Categorias")).toBeInTheDocument();
+    expect(screen.getByText("Redes Sociales")).toBeInTheDocument(); // ← corrección
   });
 
   it("abre el menú cuando se hace clic en el botón", () => {
