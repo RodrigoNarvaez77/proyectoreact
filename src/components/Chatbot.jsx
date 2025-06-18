@@ -111,7 +111,7 @@ const Chatbot = ({ onClose }) => {
       {/* Input de mensaje */}
       <div className="flex border-t pt-2">
         <input
-          className="flex-grow border border-gray-300 p-2 rounded-l-lg focus:outline-none bg-gray-50 text-sm"
+          className="w-full max-w-[95%] sm:max-w-full border border-gray-300 p-2 rounded-l-lg focus:outline-none bg-gray-50 text-sm"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}

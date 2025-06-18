@@ -24,12 +24,6 @@ const WhatsAppButton = () => {
           link: "https://wa.me/+56994458337",
           icon: "whatsapp",
         },
-        {
-          name: "Chat Automático",
-          address: "Asistente Virtual",
-          link: "",
-          icon: "robot",
-        },
       ]
     : [
         {
