@@ -109,7 +109,7 @@ const Header = () => {
                     href="#redes"
                     className="text-white hover:text-blue-400 transition duration-300 no-underline"
                   >
-                    Redes Sociales
+                    Redes
                   </a>
                 </li>
               </>

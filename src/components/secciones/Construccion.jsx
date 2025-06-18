@@ -12,6 +12,7 @@ const Construccion = () => {
       <Header />
       <Formulario backgroundImage="/images/solucenterconstruccion.webp" />
       <Proyectos />
+      <WhatsAppButton />
       <Footer />
     </div>
   );
