@@ -9,7 +9,6 @@ import WhatsAppButton from "./WhatsAppButton";
 import Compromiso from "./secciones/Compromiso";
 import Categorias from "./secciones/Categorias";
 import Despacho from "./despacho";
-import Promocion from "./secciones/Promocion";
 import CategoriaFerreteria from "./CategoriasFerreteria";
 import Formadepago from "./Formasdepago";
 import Chatbot from "./Chatbot";
@@ -70,7 +69,6 @@ const HomePage = () => {
         <Header />
         <NotificationListener />
         <Formulario backgroundImage="/images/fotoprincipal.jpg" />
-        <Promocion />
         <Compromiso />
         <Despacho />
         <CategoriaFerreteria />
