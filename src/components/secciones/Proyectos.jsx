@@ -102,11 +102,14 @@ const Proyectos = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <p className="uppercase text-sm tracking-widest text-gray-500 mb-6">
+          <p
+            className="uppercase text-sm tracking-widest text-gray-500 mb-6"
+            id="proyectos"
+          >
             Nuestros Proyectos
           </p>
           <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-wide mb-6">
-            Diseño y Construcción de Alto Nivel
+            Diseño y Construcción.
           </h2>
           <p className="text-gray-600 text-base md:text-lg leading-relaxed max-w-4xl mx-auto">
             En Solucenter desarrollamos proyectos residenciales, comerciales e
@@ -177,7 +180,7 @@ const Proyectos = () => {
         {/* Botón azul */}
         <div className="flex justify-center">
           <motion.a
-            href="#contactForm2"
+            href="#cotizacion"
             className="inline-block bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold px-8 py-4 rounded-full transition duration-300 no-underline"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

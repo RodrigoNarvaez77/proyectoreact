@@ -63,18 +63,18 @@ const Header = () => {
               <>
                 <li>
                   <a
-                    href="#proyectos"
+                    href="#cotizacion"
                     className="text-white hover:text-blue-400 transition duration-300 no-underline"
                   >
-                    Proyectos
+                    Cotización
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#compromiso"
+                    href="#proyectos"
                     className="text-white hover:text-blue-400 transition duration-300 no-underline"
                   >
-                    Compromiso
+                    Proyectos
                   </a>
                 </li>
                 <li>

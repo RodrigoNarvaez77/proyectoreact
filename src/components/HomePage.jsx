@@ -12,6 +12,7 @@ import Despacho from "./despacho";
 import CategoriaFerreteria from "./CategoriasFerreteria";
 import Formadepago from "./Formasdepago";
 import Chatbot from "./Chatbot";
+import Publicidad from "./publicidad";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import NotificationListener from "./NotificationListener";
@@ -69,6 +70,7 @@ const HomePage = () => {
         <Header />
         <NotificationListener />
         <Formulario backgroundImage="/images/fotoprincipal.jpg" />
+        <Publicidad />
         <Compromiso />
         <Despacho />
         <CategoriaFerreteria />

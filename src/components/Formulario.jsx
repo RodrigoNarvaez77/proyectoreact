@@ -77,7 +77,10 @@ const Formulario = ({ backgroundImage }) => {
     >
       <div className="flex flex-grow items-center justify-start p-6 sm:ml-10 lg:ml-20">
         <div className="w-full max-w-lg bg-opacity-80 bg-gray-800 p-8 rounded-lg shadow-xl overflow-hidden">
-          <h2 className="text-3xl font-bold text-white mb-6 text-center">
+          <h2
+            className="text-3xl font-bold text-white mb-6 text-center"
+            id="cotizacion"
+          >
             Solicita una Cotización
           </h2>
 
